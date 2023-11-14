@@ -31,8 +31,6 @@ int _printf(const char *format, ...)
 				j++;
 				i++;
 				break;
-			case 'i':
-
 			default:
 				break;
 			}
