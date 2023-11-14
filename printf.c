@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 	va_start(args, format);
 	if (format == NULL)
 		return (-1);
-	while (format[i])
+	while (format && format[i])
 	{
 
 		if (format[i] == '%')
@@ -21,7 +21,7 @@ int _printf(const char *format, ...)
 			switch (format[i + 1])
 			{
 			case '\0':
-				break;
+				return (-1);
 			case 's':
 				str = va_arg(args, char *);
 				if (str == NULL)
@@ -33,6 +33,11 @@ int _printf(const char *format, ...)
 			case 'c':
 				c = va_arg(args, int);
 				write(STDOUT_FILENO, &c, 1);
+				j++;
+				i++;
+				break;
+			case '%':
+				write(STDOUT_FILENO, "%", 1);
 				j++;
 				i++;
 				break;
