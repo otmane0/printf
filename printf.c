@@ -12,12 +12,14 @@ int _printf(const char *format, ...)
 	va_list args;
 
 	va_start(args, format);
-	while (format[i] != '\0')
+	while (format[i])
 	{
 		if (format[i] == '%')
 		{
 			switch (format[i + 1])
 			{
+			case '\0':
+				return (-1);
 			case 's':
 				str = va_arg(args, char *);
 
