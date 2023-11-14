@@ -18,14 +18,12 @@ int _printf(const char *format, ...)
 
 		if (format[i] == '%')
 		{
-
 			switch (format[i + 1])
 			{
 			case '\0':
-				break;
+				return (-1);
 			case 's':
 				str = va_arg(args, char *);
-
 				if (str == NULL)
 					str = "(null)";
 				write(STDOUT_FILENO, str, strlen(str));
