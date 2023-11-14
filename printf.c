@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * _printf - main func
  * @format: the format string
@@ -30,7 +29,6 @@ int _printf(const char *format, ...)
 				write(STDOUT_FILENO, str, strlen(str));
 				j += strlen(str);
 				i++;
-
 				break;
 			case 'c':
 				c = va_arg(args, int);
@@ -45,5 +43,6 @@ int _printf(const char *format, ...)
 			write(STDOUT_FILENO, &format[i], 1);
 			j++; }
 		i++; }
+		va_end(args);
 	return (j);
 }
