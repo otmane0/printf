@@ -15,11 +15,12 @@ int _printf(const char *format, ...)
 		return (-1);
 	while (format && format[i])
 	{
-		if (format[i] == '%')
 
+		if (format[i] == '%')
 		{
 			switch (format[i + 1])
-			{ case '\0':
+			{
+			case '\0':
 				return (-1);
 			case 's':
 				str = va_arg(args, char *);
@@ -43,10 +44,10 @@ int _printf(const char *format, ...)
 			default:
 				break; }	}
 		else
-		{ write(STDOUT_FILENO, &format[i], 1);
-			j++;
-			}
-		i++;
-		}
+		{
+			write(STDOUT_FILENO, &format[i], 1);
+			j++; }
+		i++; }
 		va_end(args);
-	return (j); }
+	return (j);
+}
