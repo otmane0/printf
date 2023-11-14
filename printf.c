@@ -15,14 +15,14 @@ int _printf(const char *format, ...)
 		return (-1);
 	while (format[i])
 	{
+
 		if (format[i] == '%')
 		{
-			if (format[i + 1] == '\0')
-				break;
+
 			switch (format[i + 1])
 			{
 			case '\0':
-				return (-1);
+				break;
 			case 's':
 				str = va_arg(args, char *);
 
