@@ -26,9 +26,7 @@ int _printf(const char *format, ...)
 				str = va_arg(args, char *);
 
 				if (str == NULL)
-				{
 					str = "(null)";
-				}
 				write(STDOUT_FILENO, str, strlen(str));
 				j += strlen(str);
 				i++;
@@ -41,16 +39,11 @@ int _printf(const char *format, ...)
 				i++;
 				break;
 			default:
-				break;
-			}
-		}
+				break; }	}
 		else
 		{
 			write(STDOUT_FILENO, &format[i], 1);
-			j++;
-		}
-		i++;
-	}
+			j++; }
+		i++; }
 	return (j);
 }
-
