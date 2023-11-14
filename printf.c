@@ -12,6 +12,8 @@ int _printf(const char *format, ...)
 	va_list args;
 
 	va_start(args, format);
+	if (format == NULL)
+		return (-1);
 	while (format[i])
 	{
 		if (format[i] == '%')
@@ -23,9 +25,14 @@ int _printf(const char *format, ...)
 			case 's':
 				str = va_arg(args, char *);
 
+				if (str == NULL)
+				{
+					str = "(null)";
+				}
 				write(STDOUT_FILENO, str, strlen(str));
 				j += strlen(str);
 				i++;
+
 				break;
 			case 'c':
 				c = va_arg(args, int);
