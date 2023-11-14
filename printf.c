@@ -21,7 +21,7 @@ int _printf(const char *format, ...)
 			switch (format[i + 1])
 			{
 			case '\0':
-				return (-1);
+				break;
 			case 's':
 				str = va_arg(args, char *);
 				if (str == NULL)
