@@ -27,10 +27,10 @@ Here:
 
 		while (j >= 0)
 		{
-			if (funcs[j].index[0] == format[i] && funcs[j].index[i] == format[i + 1])
+			if (funcs[j].index[0] == format[i] && funcs[j].index[1] == format[i + 1])
 			{
 				length = length + funcs[j].f(arg);
-				i = i + 2;
+				i += 2;
 				goto Here;
 			}
 			j--;
