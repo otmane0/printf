@@ -21,7 +21,7 @@ int d_print(va_list args)
 
 			{
 				exp = exp * 10;
-				full_num = full_num / 10;
+				full_num /= 10;
 			}
 
 			full_num = number;

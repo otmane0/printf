@@ -9,14 +9,13 @@
 int _printf(const char *format, ...)
 {
 	the_main funcs[] = {
-		{"%c", c_print}, {"%s", s_print}, {"%%", asclli},
-		{"%d", d_print}, {"%i", i_print}
-	};
+    {"%c", c_print}, {"%s", s_print}, {"%%", asclli}, {"%d", d_print}, {"%i", i_print}
+};
 	va_list arg;
 	int i = 0, j, length = 0;
 
 	va_start(arg, format);
-	if (format == NULL || format[0] == '%' && format[1] == '\0')
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 	{
 	return (-1);
 	}
@@ -29,7 +28,7 @@ Here:
 		{
 			if (funcs[j].index[0] == format[i] && funcs[j].index[1] == format[i + 1])
 			{
-				length = length + funcs[j].f(arg);
+				length += funcs[j].f(arg);
 				i += 2;
 				goto Here;
 			}

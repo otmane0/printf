@@ -15,6 +15,15 @@ int i_print(va_list args)
 	number = number / 10;
 	full_num = number;
 
+	if (last_N < 0)
+	{
+		putchar('-');
+		full_num = -full_num;
+		number = -number;
+		last_N = -last_N;
+		i++;
+	}
+
 	if (full_num > 0)
 	{
 		while (full_num / 10 != 0)
@@ -36,14 +45,6 @@ int i_print(va_list args)
 
 	}
 
-	if (last_N < 0)
-	{
-		putchar('-');
-		full_num = -full_num;
-		number = -number;
-		last_N = -last_N;
-		i++;
-	}
 
 	putchar(last_N + '0');
 
