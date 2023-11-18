@@ -9,7 +9,9 @@
 int _printf(const char *format, ...)
 {
 	the_main funcs[] = {
-    {"%c", c_print}, {"%s", s_print}, {"%%", asclli}, {"%d", d_print}, {"%i", i_print}
+
+	{"%c", c_print}, {"%s", s_print}, {"%%", asclli},
+	{"%d", d_print}, {"%i", i_print}
 };
 	va_list arg;
 	int i = 0, j, length = 0;
