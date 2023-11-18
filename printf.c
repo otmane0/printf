@@ -16,32 +16,29 @@ int _printf(const char *format, ...)
 	int i, j, length = 0;
 
 	va_start(arg, format);
-
 	if (format == NULL || format[0] == '%' && format[1] == '\0')
 	{
 	return (-1);
 	}
 Here:
-
 	while (format[i] != '\0')
 	{
 		j = 4;
-		while (j >= 0)
-			{
-				if (funcs[j].index[0] == format[i] && funcs[j].index[i] == format[i + 1]);
-				{
-					length = length + funcs[j].f(arg);
-					i = i + 2;
-					goto Here;
-				}
-				j--;
-			}
 
+		while (j >= 0)
+		{
+			if (funcs[j].index[0] == format[i] && funcs[j].index[i] == format[i + 1])
+			{
+				length = length + funcs[j].f(arg);
+				i = i + 2;
+				goto Here;
+			}
+			j--;
+		}
 			putchar(format[i]);
 			i++;
 			length++;
-
 	}
 	va_end(arg);
-	return(length);
+	return (length);
 }
