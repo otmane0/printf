@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * d_print - main func
- * @list: the format string
+ * @args: the format string
  * Return: lenght
  */
 
@@ -19,10 +19,10 @@ int d_print(va_list args)
 	{
 		while (full_num / 10 != 0)
 
-			{
-				exp = exp * 10;
-				full_num /= 10;
-			}
+		{
+			exp = exp * 10;
+			full_num /= 10;
+		}
 
 			full_num = number;
 		while (exp > 0)
@@ -46,7 +46,5 @@ int d_print(va_list args)
 	}
 
 	putchar(last_N + '0');
-
 	return (i);
-
 }
